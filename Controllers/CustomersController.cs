@@ -68,8 +68,8 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View(customers);
+           // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            return View(); //customers inside the bracket
         }
 
         public ActionResult Details(int id)
@@ -86,7 +86,7 @@ namespace Vidly.Controllers
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
-            if (customer == null)
+            if (customer == null) 
                 return HttpNotFound();
 
             var viewModel = new CustomerFormViewModel
